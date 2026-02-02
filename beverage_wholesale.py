@@ -1,6 +1,6 @@
 '''
 Program name: beverage_wholesale.py
-Names: Akbar Ali, Caitlyn Russell, Hoang Nam Bui
+Names: Akbar Ali, Caitlyn Russell, Hoang Nam Bui, Mehakpreet Kaur
 Description: Writing a code that calculates the cost of coffee and tea purchases with GST and discounts if applicable 
 '''
 
@@ -87,6 +87,7 @@ else:
           f"{price_after_gst_no_discount:^10.2f}")
 print(f'{'-'*100}')
 print('Thanks for your business, Good Bye')
+
 
 
 
