@@ -1,0 +1,107 @@
+-----------------------------------------------
+*** Welcome to Beverage Wholesale Program! ***
+-----------------------------------------------
+Please select the type of purchase:
+C: Coffee Beans
+T: Tea Boxes
+>>> x
+Invalid input, you should enter c/C or t/T
+
+Test 2: User selects coffee and enters 0 or negative number of kilograms of coffee
+-----------------------------------------------
+*** Welcome to Beverage Wholesale Program! ***
+-----------------------------------------------
+Please select the type of purchase:
+C: Coffee Beans
+T: Tea Boxes
+>>> c
+Enter number of kilograms (kg) of coffee: 0
+Quantity of coffee should be > 0
+
+-----------------------------------------------
+*** Welcome to Beverage Wholesale Program! ***
+-----------------------------------------------
+Please select the type of purchase:
+C: Coffee Beans
+T: Tea Boxes
+>>> C
+Enter number of kilograms (kg) of coffee: -5
+Quantity of coffee should be > 0
+
+Test 3: User selects tea and enters 0 or negative number of boxes of coffee
+-----------------------------------------------
+*** Welcome to Beverage Wholesale Program! ***
+-----------------------------------------------
+Please select the----------------------------
+*** Welcome to Beverage Wholesale Program! ***
+-----------------------------------------------
+Please select the type of purchase:
+C: Coffee Beans
+T: Tea Boxes
+>>> T
+Enter the number of boxes of tea: -2
+Number of tea boxes should be > 0
+
+Test 4: User selects coffee, enters 10Kg (no discount), and enters Alberta (GST = 5%)
+-----------------------------------------------
+*** Welcome to Beverage Wholesale Program! ***
+-----------------------------------------------
+Please select the type of purchase:
+C: Coffee Beans
+T: Tea Boxes
+>>> c
+Enter number of kilograms (kg) of coffee: 10
+Please enter the 2-letter province abbreviation: Ab
+------------------------------------------------------------------------------------------
+ Product   Qty (Bags/kg)  Price Before Disc    Price After Disc     GST      Total Price
+  Coffee       10.00            185.00              185.00          9.25       194.25
+------------------------------------------------------------------------------------------
+Thanks for your business, Good Bye 
+
+Test 5: User selects coffee, enters 30Kg (10% discount), and enters Ontario (GST = 13%)
+-----------------------------------------------
+*** Welcome to Beverage Wholesale Program! ***
+-----------------------------------------------
+Please select the type of purchase:
+C: Coffee Beans
+T: Tea Boxes
+>>> C
+Enter number of kilograms (kg) of coffee: 30
+Please enter the 2-letter province abbreviation: on
+------------------------------------------------------------------------------------------
+ Product   Qty (Bags/kg)  Price Before Disc    Price After Disc     GST      Total Price
+  Coffee       30.00            555.00              499.50         64.94       564.43
+------------------------------------------------------------------------------------------
+Thanks for your business, Good Bye
+
+Test 6: User selects tea, enters 10 boxes (No discount), and enters Saskatchewan (GST = 15%)
+-----------------------------------------------
+*** Welcome to Beverage Wholesale Program! ***
+-----------------------------------------------
+Please select the type of purchase:
+C: Coffee Beans
+T: Tea Boxes
+>>> T
+Enter the number of boxes of tea: 10
+Please enter the 2-letter province abbreviation: SK
+------------------------------------------------------------------------------------------
+ Product   Qty (Bags/kg)  Price Before Disc    Price After Disc     GST      Total Price
+   Tea        200.00            90.00               90.00          13.50       103.50
+------------------------------------------------------------------------------------------
+Thanks for your business, Good Bye
+
+Test 7: User selects tea, enters 12 boxes (15% discount), and enters Nova Scotia (GST = 15%)
+-----------------------------------------------
+*** Welcome to Beverage Wholesale Program! ***
+-----------------------------------------------
+Please select the type of purchase:
+C: Coffee Beans
+T: Tea Boxes
+>>> t
+Enter the number of boxes of tea: 12
+Please enter the 2-letter province abbreviation: ns
+------------------------------------------------------------------------------------------
+ Product   Qty (Bags/kg)  Price Before Disc    Price After Disc     GST      Total Price
+   Tea        240.00            108.00              91.80          13.77       105.57
+------------------------------------------------------------------------------------------
+Thanks for your business, Good Bye
