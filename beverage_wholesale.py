@@ -1,94 +1,90 @@
 '''
 Program name: beverage_wholesale.py
-Names: Akbar Ali, Caitlyn Russell, Hoang Nam Bui, Mehakpreet Kaur
-Description: Writing a code that calculates the cost of coffee and tea purchases with GST and discounts if applicable 
+Authorss: Akbar Ali, Caitlyn Russell, Hoang Nam Bui
+Date: February 4, 2026
+Description: Calculates the cost of coffee or tea purchases with GST and discounts.
 '''
 
-#Display the menu and ask user to select between coffee or tea
-print(f'''{'-'*45}\n***Welcome to Beverage Wholesale Program!***\n{'-'*45}\n
-Please select the type of purchase:\nC: Coffee Beans\nT: Tea Boxes''')
-product = str(input('>>>')).lower()
+# Calculate the Constants
+BAGS_PER_BOX = 20
+TEA_PRICE_PER_BAG = 0.45
+TEA_DISCOUNT_THRESHOLD = 10
+TEA_DISCOUNT_RATE = 0.15
 
-#Check to see if the input is valid
+COFFEE_PRICE_PER_KG = 18.50
+COFFEE_DISCOUNT_THRESHOLD = 25
+COFFEE_DISCOUNT_RATE = 0.10
 
-if product != 't' and product != 'c':
-    print('Invalid input, you should enter c/C or t/T') and exit()
-    
-#Ask user to enter coffee kilograms or tea boxes
-if product == 'c':
-    coffee_kg = int(input('Enter number of kilograms (kg) of coffee:'))
+GST_AB_BC = 0.05
+GST_ON = 0.13
+GST_OTHER = 0.15
+
+# Display the Menu and ask user to input coffee or tea
+print(f"{'-'*47}")
+print("*** Welcome to Beverage Wholesale Program! ***")
+print(f"{'-'*47}")
+print("Please select the type of purchase:")
+print("C: Coffee Beans")
+print("T: Tea Boxes")
+
+product = input(">>> ").lower()
+
+# Check if the product is valid
+if product != "c" and product != "t":
+    exit("Invalid input, you should enter c/C or t/T")
+
+# Process cost of coffee
+if product == "c":
+    coffee_kg = int(input("Enter number of kilograms (kg) of coffee: "))
     if coffee_kg <= 0:
-        print('Quantity of coffee should be > 0') and exit()
-    
-    #Calucate coffee price before and after discount    
-    price_before_discount = coffee_kg * 18.50
-    price_after_discount = price_before_discount - (price_before_discount * .10)
+        exit("Quantity of coffee should be > 0")
 
-if product == 't':
-    tea_boxes = int(input('Enter the number of boxes of tea:'))
+    price_before_discount = coffee_kg * COFFEE_PRICE_PER_KG
+
+    if coffee_kg > COFFEE_DISCOUNT_THRESHOLD:
+        price_after_discount = price_before_discount - (price_before_discount * COFFEE_DISCOUNT_RATE)
+    else:
+        price_after_discount = price_before_discount
+
+# Process cost of tea
+if product == "t":
+    tea_boxes = int(input("Enter the number of boxes of tea: "))
     if tea_boxes <= 0:
-        print('Number of tea boxes should be > 0') and exit()
-    
-    #Calculate tea price before and after discount
-    price_before_discount = float(tea_boxes * 20 * .45)
-    price_after_discount = float(price_before_discount - (price_before_discount *.10))
+        exit("Number of tea boxes should be > 0")
 
-#Calculate the GST 
-prov_code = str(input('Please enter the 2-letter province abbreviation: ').lower())
-if prov_code == 'ab' or prov_code == 'bc':
-    gst = .05
-elif prov_code == 'on':
-    gst = .13
+    total_bags = tea_boxes * BAGS_PER_BOX
+    price_before_discount = total_bags * TEA_PRICE_PER_BAG
+
+    if tea_boxes > TEA_DISCOUNT_THRESHOLD:
+        price_after_discount = price_before_discount - (price_before_discount * TEA_DISCOUNT_RATE)
+    else:
+        price_after_discount = price_before_discount
+
+# GST Calculation
+province = input("Please enter the 2-letter province abbreviation: ").lower()
+
+if province == "ab" or province == "bc":
+    gst_rate = GST_AB_BC
+elif province == "on":
+    gst_rate = GST_ON
 else:
-    gst = .15
+    gst_rate = GST_OTHER
 
-#Calculate the price after GST
+gst_amount = price_after_discount * gst_rate
+total_price = price_after_discount + gst_amount
 
-price_after_gst_no_discount = float(price_before_discount + (price_before_discount * gst))
-price_after_gst_with_discount = float(price_after_discount + (price_after_discount * gst))
+# Output
+print("-" * 90)
+print(f"{'Product':^10}{'Qty (Bags/kg)':^15}{'Price Before Disc':^20}"
+      f"{'Price After Disc':^20}{'GST':^10}{'Total Price':^15}")
 
-#Diplay the output based on the users input
-print(f'{'-'*100}')
-print(f"{'Product':^10}"
-      f"{'Qty (Bags/kg)':^15}"
-      f"{'Price Before Disc':^20}"
-      f"{'Price After Disc':^20}"
-      f"{'GST':^10}"
-      f"{'Total Price':^15}")
+if product == "c":
+    print(f"{'Coffee':^10}{coffee_kg:^15.2f}{price_before_discount:^20.2f}"
+          f"{price_after_discount:^20.2f}{gst_amount:^10.2f}{total_price:^15.2f}")
 
-if product == 'c' and coffee_kg > 25:
-    print(f"{'Coffee':^10}"
-          f"{coffee_kg:^15.2f}"
-          f"{price_before_discount:^20.2f}"
-          f"{price_after_discount:^20.2f}"
-          f"{gst:^10.2f}"
-          f"{price_after_gst_with_discount:^15.2f}")
-elif product == 'c' and coffee_kg <= 25:
-    print(f"{'Coffee':^10}"
-          f"{coffee_kg:^15.2f}"
-          f"{price_before_discount:^20.2f}"
-          f"{price_before_discount:^20.2f}"
-          f"{gst:^10.2f}"
-          f"{price_after_gst_no_discount:^15.2f}")
+if product == "t":
+    print(f"{'Tea':^10}{total_bags:^15.2f}{price_before_discount:^20.2f}"
+          f"{price_after_discount:^20.2f}{gst_amount:^10.2f}{total_price:^15.2f}")
 
-elif product == 't' and tea_boxes > 10:
-    print(f"{'Tea':^10}"
-          f"{tea_boxes:^15}"
-          f"{price_before_discount:^20.2f}"
-          f"{price_after_discount:^20.2f}"
-          f"{gst:^10.2f}"
-          f"{price_after_gst_with_discount}")
-else:
-    print(f"{'Tea':^10}"
-          f"{tea_boxes:^15}"
-          f"{price_before_discount:^20.2f}"
-          f"{price_before_discount:^20.2f}"
-          f"{gst:^10.2f}"
-          f"{price_after_gst_no_discount:^10.2f}")
-print(f'{'-'*100}')
-print('Thanks for your business, Good Bye')
-
-
-
-
-
+print("-" * 90)
+print("Thanks for your business, Good Bye")
