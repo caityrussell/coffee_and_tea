@@ -1,6 +1,6 @@
 '''
 Program name: beverage_wholesale.py
-Authorss: Akbar Ali, Caitlyn Russell, Hoang Nam Bui
+Authorss: Akbar Ali, Caitlyn Russell, Hoang Nam Bui, Mehakpreet Kaur
 Date: February 4, 2026
 Description: Calculates the cost of coffee or tea purchases with GST and discounts.
 '''
@@ -87,4 +87,5 @@ if product == "t":
           f"{price_after_discount:^20.2f}{gst_amount:^10.2f}{total_price:^15.2f}")
 
 print("-" * 90)
+
 print("Thanks for your business, Good Bye")
