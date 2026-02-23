@@ -30,7 +30,7 @@ def main():
     
     selection = input(">> ")
     
-    if selection.lower() not in ['c', 't']:
+    if selection.lower() not c and selection,lower() not t:
         print("Invalid input, you should enter c/C or t/T")
         return  # Exit program
     
@@ -130,4 +130,5 @@ def main():
 # RUN THE PROGRAM
 # =============================================================================
 if __name__ == "__main__":
+
     main()
